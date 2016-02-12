@@ -1,4 +1,4 @@
-(defproject haiku "0.1.0-SNAPSHOT"
+(defproject haiku "1.0.0"
   :description "FIXME: write description"
   :url "https://github.com/CodiBurley/haiku-generator"
   :license {:name "Eclipse Public License"
