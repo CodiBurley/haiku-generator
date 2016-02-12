@@ -51,26 +51,14 @@
         (clojure.string/join " " line-with-replaces)))
 
 (defprotocol Poem
-    (create [lines])
-    (write-line [syllables]))
+    (write [syllables]))
 
 (defrecord Haiku [title]
 Poem
-(create [lines])
-(write-line [hai]
+(write [hai]
     (let [structs (map read-structure [5,7,5]),
           speech-parts (read-parts-of-speech)]
           ; map parse structure-line to the split of the structs strings
           (map (fn [line]
                     (-> line (clojure.string/split #" ") (parse-structure-line speech-parts)))
                 structs))))
-
-(defn -main
-    "I don't do a whole lot ... yet."
-    [& args]
-        (let [haiku (Haiku. "Random Poetry")]
-            (println (nth (write-line haiku) 0))
-            (println (nth (write-line haiku) 1))
-            (println (nth (write-line haiku) 2))
-            (println " ")
-            ))
